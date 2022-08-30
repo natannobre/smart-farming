@@ -1,0 +1,20 @@
+default: &default
+  encoding: unicode
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  host: postgres
+  username: postgres
+  password: senha123
+
+development:
+  <<: *default
+  database: smart_farming_development
+
+test:
+  <<: *default
+  database: smart_farming_test
+
+production:
+  <<: *default
+  database: smart_farming_production
