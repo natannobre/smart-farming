@@ -1,4 +1,4 @@
-# Smart Recycle
+# Smart Farming
 
 [Rails Guide](https://guides.rubyonrails.org/)
 
@@ -98,10 +98,10 @@ Você vai baixar e configurar os projetos de acordo com o que você for precisar
 
 ---
 
-### Smart Recycle
+### Smart Farming
 
 ```shell
-git clone git@github.com:natannobre/smart-recycle.git
+git clone git@github.com:natannobre/smart-farming.git
 ```
 
 ### Inicializar o projeto
@@ -109,7 +109,7 @@ git clone git@github.com:natannobre/smart-recycle.git
 - Vá para o diretório do projeto:
 
 ```shell
-cd <your_path_to>/smart-recycle
+cd <your_path_to>/smart-farming
 ```
 
 - Configure os containers:
@@ -123,39 +123,3 @@ docker-compose build
 ```shell
 docker-compose up
 ```
-
-### Próximos passos:
-    - Etapa 1: 09/05 - 12/05
-      [OK] Levantar os requisitos
-        [OK] Entender as necessidades
-        [OK] Features necessárias
-        [OK] Regras de negócio
-      [OK] Configurar o ambiente de desevolvimento
-        [OK] Stack
-        [OK] Docker
-        [OK] Cloud
-        [OK] Escolher framework front-end
-
-    - Etapa 2: 13/05 - 01/06
-      [OK] Criar o design do software
-      [OK] Criar o design do banco de dados
-        [OK] Escolher qual banco será utilizado
-      [OK] Criar o design do front-end
-
-    - Etapa 3: 02/06 - 23/06
-      [!] Desenvolver o back-end
-        [OK] Autenticação de usuários
-        [OK] Comunicação com o banco de dados
-        [!] Diagramas de casos de uso
-      [!] Desenvolver o front-end
-        [OK] Tela de login
-        [OK] Tela de cadastro
-        [OK] Tela de recuperação de senha
-        [OK] Dashboard
-        [] Tabelas
-
-    - Etapa 4: 24/06 - 30/06
-      [] Testar o software
-      [] Homologação
-      [] Documentação
-      [] Entrega

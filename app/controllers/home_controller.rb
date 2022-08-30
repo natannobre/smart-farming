@@ -56,25 +56,25 @@ class HomeController < ApplicationController
     }
 
     @cards = {
-      title: 'Resíduos',
+      title: 'ECG',
       value: '$4.564.000',
       color: 'info',
       icon:  'fa-dollar-sign',
     },
     {
-      title: 'População',
+      title: 'Temperatura',
       value:  87728,
       color: 'primary',
       icon:  'fa-comments',
     },
     {
-      title: 'Potêncial econômico',
+      title: 'Oxímetro',
       value: '$2.858.000',
       color: 'success',
       icon:  'fa-dollar-sign',
     },
     {
-      title: 'Custos com RSU',
+      title: 'Humidade',
       value: '$2.070.000',
       color: 'warning',
       icon:  'fa-dollar-sign',
