@@ -51,9 +51,15 @@ gem "bootsnap", require: false
 gem 'devise'
 gem 'bootstrap', '~> 5.0.2'
 
+# Makes consuming restful web services easy.
+gem 'httparty'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  # runtime developer console and IRB alternative with powerful introspection capabilities.
+  gem 'pry', '~> 0.14.1'
 end
 
 group :development do
