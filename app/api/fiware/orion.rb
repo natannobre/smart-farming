@@ -16,6 +16,12 @@ module Fiware
       HTTParty.get("#{@base_url}#{path}", headers: { 'fiware-service' => 'openiot', 'fiware-servicepath' => '/' })
     end
 
+    def self.fetch_device_attributes(entity_name = 'urn:ngsd-ld:motion:001')
+      path = "/v2/entities/#{entity_name}/attrs"
+
+      HTTParty.get("#{@base_url}#{path}", headers: { 'fiware-service' => 'openiot', 'fiware-servicepath' => '/' })
+    end
+
     def self.format_mqtt_topic(entity_name = 'urn:ngsd-ld:motion:001')
       response = fetch_device(entity_name)
       return nil if response.body.nil? || response.body.empty?
