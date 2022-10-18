@@ -102,6 +102,9 @@ services:
 
   smart_farming:
     container_name: smart_farming
+    hostname: smart-farming
+    tty: true
+    stdin_open: true
     build:
       context: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"

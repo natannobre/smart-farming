@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get '/users', to: 'home#index', as: :user
 
   devise_for :users
+
+  post '/data/sensors', to: 'sensor#handle_orion_notification', as: :device_notification
 end
