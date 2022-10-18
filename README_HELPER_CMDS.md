@@ -22,7 +22,7 @@ cd /opt/tomcat/apache-tomcat-8.5.8
 ./bin/startup.sh # start tomcat
 ./bin/shutdown.sh # stop tomcat
 ```
-The SenSE web interface is available at http://localhost:8080/SenSE
+The SenSE web interface is available at http://localhost:8080/SenSE_Seg
 
 ## Fiware
 Documentation to [Fiware](https://github.com/FIWARE/tutorials.Getting-Started)
