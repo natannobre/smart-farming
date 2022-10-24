@@ -73,6 +73,7 @@ Rails.application.configure do
   config.hosts = [
     IPAddr.new('0.0.0.0/0'), # All IPv4 addresses.
     IPAddr.new('::/0'), # All IPv6 addresses.
+    'localhost', # The localhost reserved domain.
     'smart-farming'   # Allow this to be addressed when running in containers via docker-compose.yml.
   ]
 end
