@@ -53,6 +53,14 @@ module Fiware
                     body: body.to_json)
     end
 
+    def self.unsubscribe_device_to_receive_notifications(device)
+      path = '/v2/subscriptions'
+
+      HTTParty.delete("#{@base_url}#{path}/#{device.subscription_id}",
+                    headers: { 'fiware-service' => 'openiot',
+                               'fiware-servicepath' => '/' })
+    end
+
     def self.format_mqtt_topic(entity_name = 'urn:ngsd-ld:motion:001')
       response = fetch_device(entity_name)
       return nil if response.body.nil? || response.body.empty?
