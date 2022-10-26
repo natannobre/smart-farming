@@ -1,0 +1,2 @@
+class DeviceDataReading < ApplicationRecord
+end
