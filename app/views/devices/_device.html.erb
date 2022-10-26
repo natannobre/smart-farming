@@ -15,6 +15,11 @@
   </p>
 
   <p>
+    <strong>Last Value:</strong>
+    <%= device.readings.present? ? device.readings.first.value : 'No value received' %>
+  </p>
+
+  <p>
     <strong>Place:</strong>
     <%= device.place %>
   </p>
