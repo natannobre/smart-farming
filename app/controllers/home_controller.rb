@@ -2,14 +2,18 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @data_chart = {
-      type: 'line',
-      labels: %w[Jan Feb Mar Apr May Jun Jul Aug Sep],
-      datasets: {
-        label: 'Earnings',
-        data: [2235, 2234, 5343, 8789, 9234, 4325, 5490, 2899, 7843]
-      }
-    }.to_json
+    @devices = Device.all
+    @device_data_presenter = FormatDeviceDataPresenter.new(@devices)
+
+    @chart_area = @device_data_presenter.chart_area
+    # @chart_area = {
+    #   type: 'line',
+    #   labels: %w[Jan Feb Mar Apr May Jun Jul Aug Sep],
+    #   datasets: {
+    #     label: 'Earnings',
+    #     data: [2235, 2234, 5343, 8789, 9234, 4325, 5490, 2899, 7843]
+    #   }
+    # }.to_json
 
     @dataPieChart = {
       type: 'doughnut',
@@ -19,65 +23,42 @@ class HomeController < ApplicationController
         data: [32, 36, 32]
       }
     }.to_json
-    
+
     @allTasks = {
-      title:      'Server Migration',
-      progress:    20,
-      isFinished:  false,
-      color:      'bg-danger',
+      title: 'Server Migration',
+      progress: 20,
+      isFinished: false,
+      color: 'bg-danger'
     },
-    {
-      title:      'Sales Tracking',
-      progress:    40,
-      isFinished:  false,
-      color:      'bg-warning',
-    },
-    {
-      title:      'Customer Database',
-      progress:    60,
-      isFinished:  false,
-      color:      'bg-info',
-    },
-    {
-      title:      'Payout Details',
-      progress:    40,
-      isFinished:  false,
-      color:      'bg-primary',
-    },
-    {
-      title:      'Account Setup',
-      progress:    100,
-      isFinished:  true,
-      color:      'bg-success',
-    }
+                {
+                  title: 'Sales Tracking',
+                  progress: 40,
+                  isFinished: false,
+                  color: 'bg-warning'
+                },
+                {
+                  title: 'Customer Database',
+                  progress: 60,
+                  isFinished: false,
+                  color: 'bg-info'
+                },
+                {
+                  title: 'Payout Details',
+                  progress: 40,
+                  isFinished: false,
+                  color: 'bg-primary'
+                },
+                {
+                  title: 'Account Setup',
+                  progress: 100,
+                  isFinished: true,
+                  color: 'bg-success'
+                }
 
     @earnings = {
-      deposits: 290.29,
+      deposits: 290.29
     }
 
-    @cards = {
-      title: 'ECG',
-      value: '$4.564.000',
-      color: 'info',
-      icon:  'fa-dollar-sign',
-    },
-    {
-      title: 'Temperatura',
-      value:  87728,
-      color: 'primary',
-      icon:  'fa-comments',
-    },
-    {
-      title: 'Oxímetro',
-      value: '$2.858.000',
-      color: 'success',
-      icon:  'fa-dollar-sign',
-    },
-    {
-      title: 'Humidade',
-      value: '$2.070.000',
-      color: 'warning',
-      icon:  'fa-dollar-sign',
-    }
+    @cards = @device_data_presenter.cards
   end
 end
