@@ -123,3 +123,22 @@ docker-compose build
 ```shell
 docker-compose up
 ```
+
+- Create a Service Group
+
+```shell
+curl --location --request POST 'http://localhost:4041/iot/services' \
+--header 'fiware-service: openiot' \
+--header 'fiware-servicepath: /' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+ "services": [
+   {
+     "apikey":      "<YOUR_API_KEY>",
+     "cbroker":     "http://orion:1026",
+     "entity_type": "Thing",
+     "resource":    ""
+   }
+ ]
+}'
+```
