@@ -6,13 +6,13 @@
 
 ### Instalar o Git
 
-```shell
+```sh
 sudo apt-get install git
 ```
 
 ### Instalar Bibliotecas
 
-```shell
+```sh
 sudo apt-get install -y build-essential libpq-dev nodejs git-core curl zlib1g-dev libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev
 ```
 
@@ -42,29 +42,29 @@ ruby -v
 
 - Instalar pacote docker.io:
 
-```shell
+```sh
 sudo apt install docker.io
 ```
 
 - Inicializa o Docker e configura para inicializar com o sistema:
 
-```shell
+```sh
 sudo systemctl enable --now docker
 ```
 
 - Teste:
 
-```shell
+```sh
 sudo docker run hello-world
 ```
 
 ### Instalar Docker-Compose
 
-```shell
+```sh
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
-```shell
+```sh
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
@@ -72,14 +72,14 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 - Primeiramente é necessário adicionar os repositórios:
 
-```shell
+```sh
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 ```
 
 - Depois disso, basta instalar o yarn:
 
-```shell
+```sh
 sudo apt update
 sudo apt install yarn
 ```
@@ -100,7 +100,7 @@ Você vai baixar e configurar os projetos de acordo com o que você for precisar
 
 ### Smart Farming
 
-```shell
+```sh
 git clone git@github.com:natannobre/smart-farming.git
 ```
 
@@ -108,25 +108,32 @@ git clone git@github.com:natannobre/smart-farming.git
 
 - Vá para o diretório do projeto:
 
-```shell
+```sh
 cd <your_path_to>/smart-farming
+```
+
+- Crie um arquivo __env_variables__ com as variáveis de ambiente:
+
+```sh
+cp config/env_variables_example.yml config/env_variables.yml
+# Inside this file you need to set the variable API_KEY
 ```
 
 - Configure os containers:
 
-```shell
+```sh
 docker-compose build
 ```
 
 - Execute o container:
 
-```shell
+```sh
 docker-compose up
 ```
 
-- Create a Service Group
+- Crie um *Service Group*
 
-```shell
+```sh
 curl --location --request POST 'http://localhost:4041/iot/services' \
 --header 'fiware-service: openiot' \
 --header 'fiware-servicepath: /' \
