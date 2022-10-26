@@ -1,14 +1,45 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Devices</h1>
+<%= link_to "New device", new_device_path %>
+<br>
+<%= link_to "Home", root_path %>
 
 <div id="devices">
-  <% @devices.each do |device| %>
-    <%= render device %>
-    <p>
-      <%= link_to "Show this device", device %>
-    </p>
-  <% end %>
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h1 class="m-0 font-weight-bold text-primary">Devices</h1>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Device</th>
+              <th>Name</th>
+              <th>Object</th>
+              <th>Place</th>
+              <th>Type</th>
+              <th>Subscription</th>
+              <th>MQTT Topic</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @devices.each do |device| %>
+              <tr>
+                <td><%= device.device_id %></td>
+                <td><%= device.name %></td>
+                <td><%= device.object_id %></td>
+                <td><%= device.place %></td>
+                <td><%= device.type %></td>
+                <td><%= device.subscription_id %></td>
+                <td><%= Device.format_mqtt_topic(device) %></td>
+                <td><%= link_to "Show this device", device %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New device", new_device_path %>

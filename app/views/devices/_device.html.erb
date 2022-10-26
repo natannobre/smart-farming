@@ -24,4 +24,14 @@
     <%= device.type %>
   </p>
 
+    <p>
+    <strong>Subscription:</strong>
+    <%= device.subscription_id %>
+  </p>
+
+  <p>
+    <strong>MQTT Topic:</strong>
+    <%= Device.format_mqtt_topic(device) %>
+  </p>
+
 </div>
