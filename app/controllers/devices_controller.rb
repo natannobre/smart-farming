@@ -52,6 +52,7 @@ class DevicesController < ApplicationController
   def destroy
     Fiware::IotAgent.destroy_device(device_id: @device.device_id)
 
+    @device.device_data_readings.destroy_all
     @device.destroy
 
     respond_to do |format|
