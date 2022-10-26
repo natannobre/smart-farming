@@ -22,6 +22,37 @@ module Fiware
       HTTParty.get("#{@base_url}#{path}", headers: { 'fiware-service' => 'openiot', 'fiware-servicepath' => '/' })
     end
 
+    def self.subscribe_device_to_receive_notifications(device)
+      path = '/v2/subscriptions'
+      entity_name = Device.entity_name(device)
+
+      body = {
+        "description": "A subscription to get info about #{device.name}",
+        "subject": {
+          "entities": [
+            {
+              "idPattern": entity_name
+            }
+          ],
+          "condition": {
+            "attrs": []
+          }
+        },
+        "notification": {
+          "http": {
+            "url": 'http://smart-farming:3000/data/devices'
+          },
+          "attrs": []
+        }
+      }
+
+      HTTParty.post("#{@base_url}#{path}",
+                    headers: { 'Content-Type' => 'application/json',
+                               'fiware-service' => 'openiot',
+                               'fiware-servicepath' => '/' },
+                    body: body.to_json)
+    end
+
     def self.format_mqtt_topic(entity_name = 'urn:ngsd-ld:motion:001')
       response = fetch_device(entity_name)
       return nil if response.body.nil? || response.body.empty?
