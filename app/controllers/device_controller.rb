@@ -1,4 +1,4 @@
-class SensorController < ApplicationController
+class DeviceController < ApplicationController
   protect_from_forgery with: :null_session, only: :handle_orion_notification
 
   def handle_orion_notification
@@ -21,19 +21,18 @@ class SensorController < ApplicationController
     Rails.logger.info " === Received notification from Orion: #{params} ==="
 
     # # Parse the request body
-    # body = JSON.parse(request.body.read)
+    body = JSON.parse(request.body.read)
 
     # # Get the device id
-    # device_id = body['data'][0]['id']
+    device_id = body['data'][0]['id']
 
     # # Get the device
     # device = Device.find_by(device_id: device_id)
 
     # # Get the data
-    # data = body['data'][0]['temperature']['value']
+    # data = body['data'][0]['t']['value']
 
     # # Save the data point
-    # data_point.save
 
     # Return a 200 OK response
     render json: { status: 'OK' }, status: :ok

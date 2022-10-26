@@ -36,7 +36,7 @@ module Fiware
             "entity_type": name,
             "protocol": 'PDI-IoTA-UltraLight',
             "transport": 'MQTT',
-            "timezone": 'Europe/Berlin',
+            "timezone": 'America/Fortaleza',
             "attributes": [
               {
                 "object_id": object_id,
