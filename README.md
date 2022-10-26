@@ -133,6 +133,8 @@ docker-compose up
 
 - Crie um *Service Group*
 
+OBS: Coloque sua API_KEY no campo "apikey"
+
 ```sh
 curl --location --request POST 'http://localhost:4041/iot/services' \
 --header 'fiware-service: openiot' \
