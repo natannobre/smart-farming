@@ -61,5 +61,14 @@ module Fiware
                                'fiware-servicepath' => '/' },
                     body: body.to_json)
     end
+
+    def self.destroy_device(device_id: 'motion001')
+      path = '/iot/devices'
+
+      HTTParty.delete("#{@base_url}#{path}/#{device_id}",
+                      headers: { 'Content-Type' => 'application/json',
+                                 'fiware-service' => 'openiot',
+                                 'fiware-servicepath' => '/' })
+    end
   end
 end
