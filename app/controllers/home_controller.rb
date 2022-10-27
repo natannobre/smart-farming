@@ -7,15 +7,16 @@ class HomeController < ApplicationController
 
     @cards = @device_data_presenter.cards
     @chart_area_arr = @device_data_presenter.chart_area_arr
+    @dataPieChart = @device_data_presenter.chart_pie
 
-    @dataPieChart = {
-      type: 'doughnut',
-      labels: %w[Direct Referral Social],
-      labelsColor: %w[#4e73df #1cc88a #36b9cc],
-      datasets: {
-        data: [32, 36, 32]
-      }
-    }.to_json
+    # @dataPieChart = {
+    #   type: 'doughnut',
+    #   labels: %w[Direct Referral Social],
+    #   labelsColor: %w[#4e73df #1cc88a #36b9cc],
+    #   datasets: {
+    #     data: [32, 36, 32]
+    #   }
+    # }.to_json
 
     @allTasks = {
       title: 'Server Migration',

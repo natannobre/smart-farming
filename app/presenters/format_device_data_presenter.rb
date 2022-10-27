@@ -2,6 +2,7 @@ class FormatDeviceDataPresenter
   def initialize(devices)
     @devices = devices
     @colors = %w[primary secondary success danger warning info dark body]
+    @hex_colors = %w[#0d6efd #6610f2 #6f42c1 #dc3545 #fd7e14 #ffc107 #198754 #20c997 #0dcaf0 #adb5bd #000]
   end
 
   def cards
@@ -36,5 +37,24 @@ class FormatDeviceDataPresenter
       chart_area(device: device)
     end
   end
-  
+
+  def chart_pie
+    return {} if @devices.empty?
+
+    labels_arr = @devices.map do |device|
+      [device.device_id]
+    end
+    data_arr = @devices.map do |device|
+      [device.readings.present? ? device.readings.count : 0]
+    end
+
+    {
+      type: 'doughnut',
+      labels: labels_arr,
+      labelsColor: @hex_colors.sample(@devices.count),
+      datasets: {
+        data: data_arr
+      }
+    }.to_json
+  end
 end
