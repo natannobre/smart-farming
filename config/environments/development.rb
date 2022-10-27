@@ -76,4 +76,5 @@ Rails.application.configure do
     'localhost', # The localhost reserved domain.
     'smart-farming'   # Allow this to be addressed when running in containers via docker-compose.yml.
   ]
+  config.hosts << ENV['NGROK_HOST'] if ENV['NGROK_HOST'].present?
 end
