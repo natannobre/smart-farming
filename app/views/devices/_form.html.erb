@@ -33,7 +33,7 @@
 
   <div class="mb-2">
     <%= form.label :type, style: "display: block" %>
-    <%= form.collection_select :type, Device.order(:type), :type, :type %>
+    <%= form.select :type, Device.subclasses.map(&:name) %>
   </div>
 
   <div>
