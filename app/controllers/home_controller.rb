@@ -13,4 +13,8 @@ class HomeController < ApplicationController
       deposits: 290.29
     }
   end
+
+  def generate_csv
+    send_data DeviceDataReading.to_csv, filename: "sensors-data-#{Date.today}.csv"
+  end
 end
