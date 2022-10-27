@@ -22,7 +22,7 @@ module Fiware
       HTTParty.get("#{@base_url}#{path}", headers: { 'fiware-service' => 'openiot', 'fiware-servicepath' => '/' })
     end
 
-    def self.subscribe_device_to_receive_notifications(device)
+    def self.subscribe_device_to_receive_notifications(device:, path_to_notification: '/devices/data_notifications')
       path = '/v2/subscriptions'
       entity_name = Device.entity_name(device)
 
@@ -40,7 +40,7 @@ module Fiware
         },
         "notification": {
           "http": {
-            "url": 'http://smart-farming:3000/data/devices'
+            "url": "http://smart-farming:3000#{path_to_notification}"
           },
           "attrs": []
         }
