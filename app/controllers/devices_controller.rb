@@ -1,5 +1,6 @@
 class DevicesController < ApplicationController
-  before_action :set_device, only: %i[show edit update destroy subscribe_notification_to_device unsubscribe_notification_to_device]
+  before_action :set_device,
+                only: %i[show edit update destroy subscribe_notification_to_device unsubscribe_notification_to_device]
 
   # GET /devices or /devices.json
   def index
@@ -62,7 +63,8 @@ class DevicesController < ApplicationController
   end
 
   def subscribe_notification_to_device
-    response = Fiware::Orion.subscribe_device_to_receive_notifications(@device)
+    response = Fiware::Orion.subscribe_device_to_receive_notifications(device: @device,
+                                                                       path_to_notification: device_notification_path)
     @device.update(subscription_id: response.headers['location'].split('/')[3]) if response.created?
     redirect_to device_url(@device)
   end
