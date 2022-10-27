@@ -16,12 +16,12 @@ class FormatDeviceDataPresenter
     end
   end
 
-  def chart_area
+  def chart_area(device:)
     return {} if @devices.empty?
 
-    device = @devices.first
     data_readings = device.readings.reverse
     {
+      device_id: device.device_id,
       type: 'line',
       labels: data_readings.map(&:created_at),
       datasets: {
@@ -30,4 +30,11 @@ class FormatDeviceDataPresenter
       }
     }.to_json
   end
+
+  def chart_area_arr
+    @devices.map do |device|
+      chart_area(device: device)
+    end
+  end
+  
 end

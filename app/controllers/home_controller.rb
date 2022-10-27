@@ -5,15 +5,8 @@ class HomeController < ApplicationController
     @devices = Device.all
     @device_data_presenter = FormatDeviceDataPresenter.new(@devices)
 
-    @chart_area = @device_data_presenter.chart_area
-    # @chart_area = {
-    #   type: 'line',
-    #   labels: %w[Jan Feb Mar Apr May Jun Jul Aug Sep],
-    #   datasets: {
-    #     label: 'Earnings',
-    #     data: [2235, 2234, 5343, 8789, 9234, 4325, 5490, 2899, 7843]
-    #   }
-    # }.to_json
+    @cards = @device_data_presenter.cards
+    @chart_area_arr = @device_data_presenter.chart_area_arr
 
     @dataPieChart = {
       type: 'doughnut',
@@ -58,7 +51,5 @@ class HomeController < ApplicationController
     @earnings = {
       deposits: 290.29
     }
-
-    @cards = @device_data_presenter.cards
   end
 end
