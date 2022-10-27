@@ -13,27 +13,27 @@
 
   <div>
     <%= form.label :device_id, style: "display: block" %>
-    <%= form.text_field :device_id, placeholder: 'motion001' %>
+    <%= form.text_field :device_id, placeholder: 'motion001', required: true %>
   </div>
 
   <div>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name, placeholder: 'Motion' %>
+    <%= form.text_field :name, placeholder: 'Motion', required: true %>
   </div>
 
   <div>
     <%= form.label :object_id, style: "display: block" %>
-    <%= form.text_field :object_id, placeholder: 'm' %>
+    <%= form.text_field :object_id, placeholder: 'm', required: true %>
   </div>
 
   <div>
     <%= form.label :place, style: "display: block" %>
-    <%= form.text_field :place %>
+    <%= form.text_field :place, required: true %>
   </div>
 
-  <div>
+  <div class="mb-2">
     <%= form.label :type, style: "display: block" %>
-    <%= form.text_field :type, placeholder: 'sensor' %>
+    <%= form.collection_select :type, Device.order(:type), :type, :type %>
   </div>
 
   <div>

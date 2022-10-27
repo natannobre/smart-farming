@@ -1,10 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
+<%= link_to "Back to Devices", devices_path %>
+
 <%= render @device %>
 
 <div>
   <%#= link_to "Edit this device", edit_device_path(@device) %>
-  <%= link_to "Back to devices", devices_path %>
 
   <% if @device.subscription_id.present? %>
     <%= button_to "Unsubscribe Notifications", unsubscribe_device_path(@device.id) %>
