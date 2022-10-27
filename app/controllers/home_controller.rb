@@ -7,6 +7,10 @@ class HomeController < ApplicationController
 
     @cards = @device_data_presenter.cards
     @chart_area_arr = @device_data_presenter.chart_area_arr
-    @dataPieChart = @device_data_presenter.chart_pie
+    @data_pie_chart = @device_data_presenter.chart_pie
+
+    @earnings = {
+      deposits: 290.29
+    }
   end
 end
