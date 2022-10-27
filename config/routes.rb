@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :devices
+  resources :sensors, controller: 'devices', type: 'Sensor'
 
   root to: 'home#index'
   get '/users', to: 'home#index', as: :user

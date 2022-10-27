@@ -34,6 +34,8 @@ class DevicesController < ApplicationController
         format.json { render json: @device.errors, status: :unprocessable_entity }
       end
     end
+  rescue ActiveRecord::SubclassNotFound => e
+    redirect_to new_device_url(@device), notice: 'Device creation failed.'
   end
 
   # PATCH/PUT /devices/1 or /devices/1.json
@@ -84,6 +86,6 @@ class DevicesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def device_params
-    params.require(:device).permit(:device_id, :name, :object_id, :place)
+    params.require(:device).permit(:device_id, :name, :object_id, :place, :type)
   end
 end

@@ -1,0 +1,42 @@
+<div id="<%= dom_id sensor %>">
+  <p>
+    <strong>sensor:</strong>
+    <%= sensor.device_id %>
+  </p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= sensor.name %>
+  </p>
+
+  <p>
+    <strong>Object:</strong>
+    <%= sensor.object_id %>
+  </p>
+
+  <p>
+    <strong>Last Value:</strong>
+    <%= sensor.readings.present? ? sensor.readings.first.value : 'No value received' %>
+  </p>
+
+  <p>
+    <strong>Place:</strong>
+    <%= sensor.place %>
+  </p>
+
+  <p>
+    <strong>Type:</strong>
+    <%= sensor.type %>
+  </p>
+
+    <p>
+    <strong>Subscription:</strong>
+    <%= sensor.subscription_id %>
+  </p>
+
+  <p>
+    <strong>MQTT Topic:</strong>
+    <%= Device.format_mqtt_topic(sensor) %>
+  </p>
+
+</div>
