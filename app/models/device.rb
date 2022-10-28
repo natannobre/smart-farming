@@ -6,7 +6,7 @@ class Device < ApplicationRecord
   end
 
   def self.format_mqtt_topic(device)
-    "/ul/#{ENV['API_KEY']}/#{device.device_id}/attrs"
+    "/ul/#{ENV['FIWARE_API_KEY']}/#{device.device_id}/attrs"
   end
 
   def readings

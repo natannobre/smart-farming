@@ -4,7 +4,7 @@ module Fiware
   class IotAgent
     @base_url = 'http://iot-agent:4041'
 
-    def self.create_service_group(api_key: '4jggokgpepnvsb2uv4s40d59ov', cbroker: 'http://orion:1026', entity_type: 'Thing', resource: '')
+    def self.create_service_group(api_key: ENV['FIWARE_API_KEY'], cbroker: 'http://orion:1026', entity_type: 'Thing', resource: '')
       path = '/iot/services'
 
       body = {

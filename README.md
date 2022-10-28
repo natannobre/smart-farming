@@ -116,7 +116,7 @@ cd <your_path_to>/smart-farming
 
 ```sh
 cp config/env_variables_example.yml config/env_variables.yml
-# Inside this file you need to set the variable API_KEY
+# Inside this file you need to set the variable FIWARE_API_KEY
 ```
 
 - Configure os containers:
@@ -133,7 +133,7 @@ docker-compose up
 
 - Crie um *Service Group*
 
-OBS: Coloque sua API_KEY no campo "apikey"
+OBS: Coloque sua FIWARE_API_KEY no campo "apikey"
 
 ```sh
 curl --location --request POST 'http://localhost:4041/iot/services' \

@@ -68,7 +68,7 @@ module Fiware
       device_id = response['id'].split(':')[2]
       return nil if device_id.nil?
 
-      "/ul/#{ENV['API_KEY']}/#{device_id}/attrs"
+      "/ul/#{ENV['FIWARE_API_KEY']}/#{device_id}/attrs"
     end
   end
 end
