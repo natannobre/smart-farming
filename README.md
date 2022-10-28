@@ -151,3 +151,35 @@ curl --location --request POST 'http://localhost:4041/iot/services' \
  ]
 }'
 ```
+- Após inicializar a rede Blockchain, Crie um User e pegue o Token de authenticação
+  
+```sh
+curl --location --request POST 'http://localhost:4000/users' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjY5NjI0OTMsInVzZXJuYW1lIjoibmF0YW5ub2JyZTEiLCJvcmdOYW1lIjoiT3JnMSIsImlhdCI6MTY2NjkyNjQ5M30.mVVzoYsrQaQTwuuF6sRzbznrWJkLbWpnt0efJe0t4cY' \
+--data-raw '{
+	"username":"<USERNAME>",
+	"orgName": "Org1"
+}	'
+
+# Response example:
+# {
+#     "success": true,
+#     "message": "natannobre1 enrolled Successfully",
+#     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjcwMDY1OTUsInVzZXJuYW1lIjoibmF0YW5ub2JyZTEiLCJvcmdOYW1lIjoiT3JnMSIsImlhdCI6MTY2Njk3MDU5NX0.8BJoE5eRyN3UH-SZ5-a68BlcnVVUTO8GNTJpPEo7XVc"
+}
+```
+
+- Com este token você seta a variável de ambiente __BLOCKCHAIN_API_KEY__ no arquivo __config/env_variables.yml__ e reinicia a aplicação Rails
+
+```rb
+BLOCKCHAIN_API_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjcwMDY1OTUsInVzZXJuYW1lIjoibmF0YW5ub2JyZTEiLCJvcmdOYW1lIjoiT3JnMSIsImlhdCI6MTY2Njk3MDU5NX0.8BJoE5eRyN3UH-SZ5-a68BlcnVVUTO8GNTJpPEo7XVc
+```
+
+```sh
+# Parar os containers da aplicação Rails
+docker stop [ CONTAINER_IDS_LIST ]
+
+cd <your_path_to>/smart-farming
+docker-compose up
+```
