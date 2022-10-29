@@ -165,7 +165,7 @@ curl --location --request POST 'http://localhost:4000/users' \
 # Response example:
 # {
 #     "success": true,
-#     "message": "natannobre1 enrolled Successfully",
+#     "message": "<USERNAME> enrolled Successfully",
 #     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjcwMDY1OTUsInVzZXJuYW1lIjoibmF0YW5ub2JyZTEiLCJvcmdOYW1lIjoiT3JnMSIsImlhdCI6MTY2Njk3MDU5NX0.8BJoE5eRyN3UH-SZ5-a68BlcnVVUTO8GNTJpPEo7XVc"
 }
 ```
