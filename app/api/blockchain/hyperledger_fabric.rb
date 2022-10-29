@@ -16,17 +16,17 @@ module Blockchain
                     body: body.to_json)
     end
 
-    def self.create_device_reading(reading:, timestamp: 1_600_134_444_309_939, device_id: 'temp001')
+    def self.create_device_reading(device_name:, reading:, timestamp: 1_600_134_444_309_939, device_id: 'temp001')
       path = '/channels/mychannel/chaincodes/fabcar'
 
       args = [
         {
-          "id": device_id,
-          "make": reading,
+          "id": timestamp.to_s,
+          "make": '',
           "addedAt": timestamp,
-          "model": '',
-          "color": '',
-          "owner": ''
+          "model": device_id.to_s,
+          "color": device_name.to_s,
+          "owner": reading.to_s
         }.to_json
       ]
 
