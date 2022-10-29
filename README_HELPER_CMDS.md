@@ -35,6 +35,10 @@ cd /home/natannobre/faculdade/tcc2/tutorials.IoT-over-MQTT
 docker run -it --rm --name mqtt-subscriber \
   --network fiware_default efrecon/mqtt-client sub -h mosquitto -t "/#"
 
+# OR
+
+mosquitto_sub -h localhost -p 5000 -t '/#'
+
 # Publish to a topic
 docker run -it --rm --name mqtt-publisher \
   --network fiware_default efrecon/mqtt-client pub -h mosquitto -m "HELLO WORLD" -t "/test"
@@ -43,8 +47,13 @@ docker run -it --rm --name mqtt-publisher --network \
   fiware_default efrecon/mqtt-client pub -h mosquitto -m "c|1" \
   -t "/ul/4jggokgpepnvsb2uv4s40d59ov/motion001/attrs"
 
-- OBS: topic = /<protocol>/<api-key>/<device-id>/attrs
+# OR
+
+mosquitto_pub -h localhost -p 1883 -t '/ul/4jggokgpepnvsb2uv4s40d59ov/motion001/attrs' -m 'HELLO WORLD'
 ```
+- OBS: topic = /\<protocol>/\<api-key>/\<device-id>/attrs
+
+
 The FIWARE web interface is available at http://localhost:3000/device/monitor
 OBS: There is an Network IP confict when `subnet: 172.18.1.0/24` change to `subnet:172.19.1.0/24`
 
