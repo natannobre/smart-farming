@@ -1,0 +1,38 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="text-center mb-3">
+  <%= link_to "Register Transaction", new_blockchain_transaction_path, class: "btn btn-primary" %>
+  <%= link_to "Home", root_path, class: "btn btn-success" %>
+</div>
+
+<div id="blockchain">
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h1 class="m-0 font-weight-bold text-primary">Blockchain Transactions</h1>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Device</th>
+              <th>Data</th>
+              <th>Timestamp</th>
+              <th>State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @blockchain_transactions.each do |transaction| %>
+              <tr>
+                <td><%= transaction.device_name %></td>
+                <td><%= transaction.value %></td>
+                <td><%= transaction.created_at %></td>
+                <td><%= transaction.state %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
