@@ -1,5 +1,6 @@
 class Device < ApplicationRecord
   has_many :device_data_readings
+  has_many :blockchain_transactions
 
   def self.entity_name(device)
     "urn:ngsd-ld:#{device.device_id}"

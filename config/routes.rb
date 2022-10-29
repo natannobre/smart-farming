@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :devices
   resources :sensors, controller: 'devices', type: 'Sensor'
+  resources :blockchain_transactions, controller: 'blockchain_transactions', type: 'BlockchainTransaction'
 
   root to: 'home#index'
   get '/users', to: 'home#index', as: :user
