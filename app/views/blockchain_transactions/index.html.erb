@@ -27,7 +27,7 @@
                 <td><%= transaction.device_name %></td>
                 <td><%= transaction.value %></td>
                 <td><%= transaction.created_at %></td>
-                <td><%= transaction.state %></td>
+                <td class="<%= BlockchainTransactionsPresenter.state_color_class(transaction.state) %>"><%= transaction.state %></td>
               </tr>
             <% end %>
           </tbody>
